@@ -88,7 +88,7 @@ if __name__ == '__main__':
     print("rst is ",rst)
 
 #代码参考：https://blog.csdn.net/weixin_42018258/article/details/80683826
-
+#难点：在理解递归函数的返回的过程，有点难；
 """
 深拷贝和浅拷贝的区别：
 
