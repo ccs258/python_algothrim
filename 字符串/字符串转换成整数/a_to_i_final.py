@@ -78,7 +78,7 @@ class Automation(object):
         self.state = self.table[self.state][self.get_col(c)] #状态更新，根据当前状态的取值情况，更新当前状态；
         if self.state == 'nums':
             self.ans = self.ans * 10 + int(c)
-            self.ans = min(self.ans,INT_MAX) if self.sign == 1 else min(self.ans,-INT_MIN)
+            self.ans = min(self.ans,INT_MAX) if self.sign == 1 else min(self.ans,-INT_MIN)  #每一次计算的时候都会判断；
         elif self.state == 'sign':
             self.sign = 1 if c == "+" else -1
         #如果是其他状态，ans和符号都不做改变，继续循环；
