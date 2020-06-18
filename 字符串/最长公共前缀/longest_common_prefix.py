@@ -25,7 +25,7 @@ class Solution:
         max_str = ''
 
         for idx,_ in enumerate(min_str) :
-            max_len,max_len_str = self.cal_common_prefix(min_str[:idx+1],idx,strs)
+            max_len,max_len_str = self.cal_common_prefix(min_str[:idx+1],idx,strs) #时间复杂度是，0+1+2+3+...+n = n*(n+1)/2
             if max_len > max  :
                 max = max_len
                 max_str = max_len_str
@@ -83,5 +83,10 @@ if __name__ == '__main__':
 内存消耗 :13.8 MB, 
 在所有 Python3 提交中击败了6.15%的用户
     
+    
+#官方的解答；
+执行用时 :36 ms, 
+在所有 Python3 提交中击败了92.29%的用户内存消耗 :
+13.7 MB, 在所有 Python3 提交中击败了6.15%的用户
     """
 
