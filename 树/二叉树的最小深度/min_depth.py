@@ -84,14 +84,15 @@ class Solution:
         else:
             stack,min_depth = [(1,root),],float("inf") #构建遍历的栈--深度优先的方向以及结果
         while stack:
-            depth,root = stack.pop()
-            children = [root.left,root.right]
+            depth,root = stack.pop()   #关键就在这两步，栈的结构，（1）先弹出栈列表最后一个进行计算；按下面的计算逻辑
+            children = [root.left,root.right] #这一步表名是方向，永远都是先算左子节点优先
             if not any(children):
                 min_depth = min(depth,min_depth)
             for c in children:
                 if c:
-                    stack.append((depth+1,c))
-        return min_depth
+                    stack.append((depth+1,c))  #（2）这个地方左子节点先进，再是右子节点；因此下一步（1）处还是会先弹出右子节点
+        return min_depth  #这个是要等全部树遍历完就放回结果；因为它最初只会在一个方向上遍历，得到最小值；第二次还会在第二个方向上遍历得到，最小值；
+    #全局最小值即为最终最小值
 
 
 class Solution_2:
@@ -111,10 +112,10 @@ class Solution_2:
         else:
             node_queue = deque([(1,root),])
         while node_queue:
-            depth,root = node_queue.popleft()
+            depth,root = node_queue.popleft()   #先弹出左子节点
             children = [root.left,root.right]
             if not any(children):
-                return depth
+                return depth    #只要一发现有一边没有子树，就返回结果；
             for c in children:
                 if c:
                     node_queue.append((depth+1,c))
